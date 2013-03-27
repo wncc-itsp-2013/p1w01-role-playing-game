@@ -1,2 +1,15 @@
 28 March 2013 3:37AM:
-	I am going to make my own game engine using SDL. Thats the first step I am gonna do.
+I am going to make my own game engine using SDL. Thats the first step I am gonna take.
+
+28 March 2012 4:00AM:
+Game Engine Requirements:
+	1. A window class
+	2. window class should have members, 
+		A)Draw image onto screen to respective coordinates
+		B)Draw image ignoring specific colors
+		C)Reload the image
+		D)Close the window
+		E)Size of the window in the constructor
+Thats for starters and I will think of the others on the go.
+					      
+	
