@@ -1,7 +1,7 @@
 28 March 2013 3:37AM:
 I am going to make my own game engine using SDL. Thats the first step I am gonna take.
 
-28 March 2012 4:00AM:
+28 March 2013 4:00AM:
 Game Engine Requirements:
 	1. A window class
 	2. window class should have members, 
@@ -12,4 +12,7 @@ Game Engine Requirements:
 		E)Size of the window in the constructor
 Thats for starters and I will think of the others on the go.
 					      
-	
+29 March 2013 4:00PM:
+May change the close function in the engine.
+Have to add a function in the engine for rotating images.
+And have to start some part of the game.
