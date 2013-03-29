@@ -16,3 +16,6 @@ Thats for starters and I will think of the others on the go.
 May change the close function in the engine.
 Have to add a function in the engine for rotating images.
 And have to start some part of the game.
+
+30 March 2013 2:15AM:
+I want to stop the engine currently and start the game using openGL for drawing, SDL for input from keyboard or mouse and glut for window management.
