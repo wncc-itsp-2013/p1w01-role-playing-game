@@ -36,7 +36,7 @@ int main(){
 	Note: If the display is palettized, you must set the palette first.
 	*/
 	yellow = SDL_MapRGB(screen->format, 0xff, 0xff, 0x00);
-	x = screen->w / 2;
+	x = screen->w / 2 +200;
 	y = screen->h / 2;
 	/* Lock the screen for direct access to the pixels */
 	if ( SDL_MUSTLOCK(screen) ) {
@@ -51,7 +51,7 @@ int main(){
 	}
 	/* Update just the part of the display that we’ve changed */
 	SDL_UpdateRect(screen, x, y, 1, 1);
-	//display_bmp(screen,"calvin.bmp");
+	display_bmp(screen,"calvin.bmp");
 	sleep(2);
 
 	cout<<"Quiting SDL"<<endl;
