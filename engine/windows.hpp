@@ -1,5 +1,5 @@
-#ifndef WINDOW_CPP
-#define WINDOW_CPP
+#ifndef WINDOW_HPP
+#define WINDOW_HPP
 #include "SDL/SDL.h"
 
 class window{

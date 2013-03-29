@@ -1,6 +1,3 @@
-#ifndef WINDOW_HPP
-#define WINDOW_HPP
-
 #include "SDL/SDL.h"
 #include "putget.cpp"
 #include "windows.hpp"
@@ -33,9 +30,6 @@ void window::draw(char *filename, int x, int y){
 		SDL_SetColors(screen, image->format->palette->colors, 0,
 		image->format->palette->ncolors);
 	}
-	/* Blit onto the screen surface */
-	if(SDL_BlitSurface(image, NULL, screen, NULL) < 0)
-		fprintf(stderr, "BlitSurface error: %s\n", SDL_GetError());
 
 	int xp,yp,xe,ye;
 	Uint32 color;
@@ -78,9 +72,6 @@ void window::draw(char *filename, int x, int y, int ix, int iy){
 		SDL_SetColors(screen, image->format->palette->colors, 0,
 		image->format->palette->ncolors);
 	}
-	/* Blit onto the screen surface */
-	if(SDL_BlitSurface(image, NULL, screen, NULL) < 0)
-		fprintf(stderr, "BlitSurface error: %s\n", SDL_GetError());
 
 	int xp,yp,xe,ye;
 	Uint32 color,ignore;
@@ -129,4 +120,3 @@ void window::close(){
 }
 
 
-#endif
