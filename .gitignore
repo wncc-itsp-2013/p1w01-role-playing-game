@@ -1,1 +1,3 @@
 ./tests/a.out
+./engine/a.out
+.*

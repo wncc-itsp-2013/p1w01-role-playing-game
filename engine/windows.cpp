@@ -9,6 +9,30 @@ window::window(int w, int h){
 		printf("Error:2 Could set a 640x480x8 video mode: %s\n",SDL_GetError());
 		return;
 	}
+	bgcolor=SDL_MapRGB(screen->format,255,255,255);
+	refresh();
+}
+
+void window::refresh(){
+	int i,j;
+	if(SDL_MUSTLOCK(screen)){
+		if(SDL_LockSurface(screen)<0){
+			fprintf(stderr, "Can't lock screen: %s\n",SDL_GetError());
+			return;
+		}
+	}
+	for(i=0;i<screen->w;i++){
+		for(j=0;j<screen->h;j++){
+			putpixel(screen,i,j,bgcolor);
+		}
+	}
+	if(SDL_MUSTLOCK(screen)){
+		SDL_UnlockSurface(screen);
+	}
+}
+
+void window::setbgcolor(int x,int y, int z){
+	bgcolor=SDL_MapRGB(screen->format,x,y,z);
 }
 
 //Draw image to screen at respective coordinates
@@ -49,7 +73,6 @@ void window::draw(char *filename, int x, int y){
 
 	//deleting image
 	SDL_FreeSurface(image);
-
 }
 
 
