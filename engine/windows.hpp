@@ -23,6 +23,6 @@ class window{
 
 		//close the window
 		void close();
-}
+};
 
 #endif

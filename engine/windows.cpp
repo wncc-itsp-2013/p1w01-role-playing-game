@@ -3,23 +3,25 @@
 
 #include "SDL/SDL.h"
 #include "putget.cpp"
+#include "windows.hpp"
+
 
 window::window(int w, int h){
 	screen = SDL_SetVideoMode(w,h,8,SDL_SWSURFACE|SDL_ANYFORMAT);
 	if(screen == NULL){
 		printf("Error:2 Could set a 640x480x8 video mode: %s\n",SDL_GetError());
-		return 1;
+		return;
 	}
 }
 
 //Draw image to screen at respective coordinates
-void draw(char *filename, int x, int y){
+void window::draw(char *filename, int x, int y){
 
 	SDL_Surface *image;
 	/* Load the BMP file into a surface */
-	image = SDL_LoadBMP(file_name);
+	image = SDL_LoadBMP(filename);
 	if (image == NULL) {
-		fprintf(stderr, "Couldn’t load %s: %s\n", file_name, SDL_GetError());
+		fprintf(stderr, "Couldn’t load %s: %s\n", filename, SDL_GetError());
 		return;
 	}
 	/*
@@ -59,12 +61,12 @@ void draw(char *filename, int x, int y){
 
 
 //Draw image to respective coordinates ignoring specific colors
-void draw(char *filename, int x, int y, int ix, int iy){
+void window::draw(char *filename, int x, int y, int ix, int iy){
 	SDL_Surface *image;
 	/* Load the BMP file into a surface */
-	image = SDL_LoadBMP(file_name);
+	image = SDL_LoadBMP(filename);
 	if (image == NULL) {
-		fprintf(stderr, "Couldn’t load %s: %s\n", file_name, SDL_GetError());
+		fprintf(stderr, "Couldn’t load %s: %s\n", filename, SDL_GetError());
 		return;
 	}
 	/*
@@ -117,12 +119,12 @@ void draw(char *filename, int x, int y, int ix, int iy){
 
 
 //reload the window
-void reload(){
+void window::reload(){
 	SDL_UpdateRect(screen,0,0,0,0);
 }
 
 //close the window
-void close(){
+void window::close(){
 	SDL_FreeSurface(screen);
 }
 
