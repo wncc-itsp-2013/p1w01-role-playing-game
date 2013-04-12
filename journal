@@ -22,3 +22,36 @@ I want to stop the engine currently and start the game using openGL for drawing,
 
 11 April 2013 6:43PM:
 Just thought about some cool ideas for the game. If its an rpg then, include classes psychic, wizard. Psychic can take knowledge/more gross brains from the people he killed and this helps him in controlling other people. Wizard on the other hand deals with spells. Other two classes I thought would be an archer and a gunsman. The archer would have different arrows. But have to think more about gunsman.
+
+13 April 2013 2:04AM:
+Just wrote an ITSP Abstract today. The major changes I want to do are:
+	A. Game would be in 3D, using openGL, C++, glut for window management and SDL for input and multimedia management.
+	B. I also had some wild ideas. Though they need a lot of refinement, I present them here
+			1. Different classes and different play types:
+				Archer: long ranged, low fire rate, medium damage, high mobility
+				Gunslinger: long ranged, high fire rate, low damage, high mobility
+				Wizard:Medium range, varying fire rate, varying damage, varying mobility, etc.
+				and a few other thief, warrior, illusionist, necromancer, etc each with unique 
+				abilities.
+
+			2. The game mechanics:
+				These would be basic for the most part, but may implement ambitious once like stealth 					mechanics similar to the game “Dishonored”
+
+			3. The world:
+			A manually created world, with trees, mountains, enemies initially. But would like to 				create a random world generator if at all mulitplayer is developed.  
+
+			4. Leveling up and skills:
+				I would like to follow the leveling up system of skyrim. A player would gain 
+				experience points by killing enemies. This experience causes players to level up at 
+				regular stages. Every leveling up gets the player perk points. Every player has a set 
+				of skills. The skill level increases upon doing specific things related to that skill
+				(For example repeatedly using fire spells increases necromancy skill for a wizard). Up 
+				on reaching certain skill level, perk points can be spent on that skill to gain 
+				additional powers.
+		
+			5. The view:
+				First I would develop the project in a 3rd person perspective and may extend it to an 
+				optional 1st person perspective.
+
+			6. Inventory:
+				There would be an inventory system, in which player can place items which he found.
