@@ -1,9 +1,6 @@
 #include <GL/freeglut.h>
 #include <GL/glu.h>
-#include "cuboid.h"
-#include "world.h"
-#include "hero.h"
-#include "cube.h"
+#include "objects/cube.h"
 
 
 float rotate_x=0;
@@ -64,6 +61,9 @@ void display(void)
 	glRotatef(rotate_x,1,0,0);
 	glRotatef(rotate_y,0,1,0);
 
+	glColor3f(0.2,0.8,0.2);
+	cube();
+	/*
 	glPushMatrix();
 	glScalef(0.05,0.05,-0.05);
 	glRotatef(90,1,0,0);
@@ -72,7 +72,8 @@ void display(void)
 	glVertexPointer(3, GL_FLOAT, 0, cubeVerts);
 	glDrawArrays(GL_TRIANGLES, 0, cubeNumVerts);
 	glPopMatrix();
-	
+	*/
+
 	glPopMatrix();
 	glFlush();
 }
