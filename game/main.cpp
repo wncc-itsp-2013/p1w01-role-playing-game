@@ -63,16 +63,6 @@ void display(void)
 
 	glColor3f(0.2,0.8,0.2);
 	cube();
-	/*
-	glPushMatrix();
-	glScalef(0.05,0.05,-0.05);
-	glRotatef(90,1,0,0);
-	glColor3f(1,(165.0/255.0),0);
-	hero();
-	glVertexPointer(3, GL_FLOAT, 0, cubeVerts);
-	glDrawArrays(GL_TRIANGLES, 0, cubeNumVerts);
-	glPopMatrix();
-	*/
 
 	glPopMatrix();
 	glFlush();
