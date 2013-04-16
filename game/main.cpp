@@ -1,6 +1,7 @@
 #include <GL/freeglut.h>
 #include <GL/glu.h>
-#include "objects/cube.h"
+#include "cube.h"
+#include "character.cpp"
 
 
 float rotate_x=0;
@@ -62,7 +63,9 @@ void display(void)
 	glRotatef(rotate_y,0,1,0);
 
 	glColor3f(0.2,0.8,0.2);
-	cube();
+	//cube();
+	character neo;
+	neo.draw();
 
 	glPopMatrix();
 	glFlush();
