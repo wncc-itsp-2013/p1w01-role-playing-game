@@ -3,11 +3,17 @@
 
 #include <GL/glu.h>
 #include <GL/freeglut.h>
+#include "SDL/SDL.h"
 #include "mymath.h"
 #include "cube.h"
+#include <iostream>
 
 //pi/180
 #define pi180 0.017453293
+
+void printhello(int* p){
+	std::cout<<"hello"<<std::endl;
+}
 
 void pole(float l){
 	glPushMatrix();
@@ -109,17 +115,12 @@ class character{
 		E2=15;
 		G1=0;
 		G2=0;
-		T=10;
+		T=0;
 	}
 
 	void draw(){
 
 		glPushMatrix();
-//		float temp=(a+(l/2)+(c*(mytan(T))));
-//		glTranslatef( temp*(mysin (T)),temp*(mycos (T)),0);
-		//glTranslatef( (l+a)*(mysin (T)),(l+a)*(mycos (T)),0);
-//glTranslatef(0,(l+a)*(mycos (T)),0);
-
 		glRotatef(T,0,0,1);
 		glTranslatef(0,a+l,0);
 
@@ -199,6 +200,12 @@ class character{
 		/*******TEST******/
 	}
 
+	void walk(){
+		//SDL_AddTimer(1000,)
+		//SDL_Delay(1000);
+
+
+	}
 };
 
 

@@ -1,3 +1,11 @@
+27 April 2013 5:00AM:
+Tried to implement the temporary goals. Basic world is done. But while trying implement character walking, stumbled up on a great idea. Implemting frames. This MUST be done. But first try to get a good idea of SDL timer function. And the code must be completely converted to SDL. All bits of glut/freeglut must be removed.
+So, goals as of now:
+	1. Understand SDL timer functions
+	2. Convert glut to SDL
+	3. Introduce frames and frame rate
+	4. Make the character walk
+
 27 April 2013 2:11AM:
 Semister is over, so I can develop this game full time. 
 Temporary Goals:
