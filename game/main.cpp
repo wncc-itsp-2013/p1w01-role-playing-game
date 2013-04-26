@@ -2,6 +2,7 @@
 #include <GL/glu.h>
 #include "cube.h"
 #include "character.cpp"
+#include "world.h"
 
 
 float rotate_x=0;
@@ -62,10 +63,17 @@ void display(void)
 	glRotatef(rotate_x,1,0,0);
 	glRotatef(rotate_y,0,1,0);
 
+	/****************DRAWING STARTS************/
 	glColor3f(0.2,0.8,0.2);
 	//cube();
+	//world newworld(0.2,2,2);
+	world newworld;
+	newworld.draw();
+
+	glColor3f(0.2,0.2,0.8);
 	character neo;
 	neo.draw();
+	/***************DRAWING ENDS**************/
 
 	glPopMatrix();
 	glFlush();

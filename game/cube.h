@@ -61,4 +61,11 @@ void cube(){
 
 }
 
+void cuboid(float x, float y, float z){
+	glPushMatrix();
+	glScalef(x,y,z);
+	cube();
+	glPopMatrix();
+}
+
 #endif

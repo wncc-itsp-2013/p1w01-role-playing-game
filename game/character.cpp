@@ -109,17 +109,26 @@ class character{
 		E2=15;
 		G1=0;
 		G2=0;
-		T=0;
+		T=10;
 	}
 
 	void draw(){
+
 		glPushMatrix();
-		float temp=(a+(l/2)+(c*(mytan(T))));
-		glTranslatef( temp*(mysin (T)),temp*(mycos (T)),0);
+//		float temp=(a+(l/2)+(c*(mytan(T))));
+//		glTranslatef( temp*(mysin (T)),temp*(mycos (T)),0);
+		//glTranslatef( (l+a)*(mysin (T)),(l+a)*(mycos (T)),0);
+//glTranslatef(0,(l+a)*(mycos (T)),0);
+
 		glRotatef(T,0,0,1);
+		glTranslatef(0,a+l,0);
 
 		//body with diaphram as center
 		body(b,d,a,c);
+			/********TEST**********/
+			cuboid(0.05,0.05,0.05);
+			/**********TEST*******/
+
 			//right hand
 			glPushMatrix();
 			//translate so that hands joint to body becomes origin
@@ -182,6 +191,12 @@ class character{
 			glPopMatrix();
 
 		glPopMatrix();
+
+		/*******TEST***********/
+		cuboid(1,0.1,1);
+		glColor3f(0.1,0.8,0.1);
+		cuboid(0.01,5,0.01);
+		/*******TEST******/
 	}
 
 };
