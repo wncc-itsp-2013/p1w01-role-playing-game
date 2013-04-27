@@ -1,9 +1,12 @@
+#ifndef MAIN_CPP
+#define MAIN_CPP 
 #include <GL/freeglut.h>
 #include <GL/glu.h>
 #include "cube.h"
 #include "character.cpp"
 #include "world.h"
-
+#include "SDL/SDL.h"
+#include <iostream>
 
 float rotate_x=0;
 float rotate_y=0;
@@ -23,10 +26,10 @@ void keyboardKeys(unsigned char key,int x,int y){
 			rotate_y-=5;
 			break;
 	}
-	glutPostRedisplay();
+	//glutPostRedisplay();
 }
 
-void init(void)
+void initializeGL(int width, int height)
 {
 	GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 1.0 };
 	GLfloat mat_shininess[] = { 20.0 };
@@ -55,7 +58,7 @@ void init(void)
 	glEnable(GL_NORMALIZE);
 }
 
-void display(void)
+void draw_screen(void)
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	float colors[]={0,0,255,0,0,255,0,0,255};
@@ -77,6 +80,8 @@ void display(void)
 
 	glPopMatrix();
 	glFlush();
+
+	SDL_GL_SwapBuffers();
 }
 
 
@@ -91,19 +96,68 @@ void reshape(int w, int h){
 	glMatrixMode(GL_MODELVIEW);
 }
 
+static int quitSDL(int code){
+	SDL_Quit();
+	return code;
+}
+
+void initializeSDL(){
+	const SDL_VideoInfo* info = NULL;
+	//height and width of window
+	int height=700;
+	int width=1000;
+	//color depth in bits
+	int bpp;
+	int flags;
+
+	if(SDL_Init(SDL_INIT_VIDEO)<0){
+		std::cout<<"Video Initialisation Failed"<<std::endl;
+		quitSDL(1);
+	}
+
+	info = SDL_GetVideoInfo();
+
+	if(!info){
+		std::cout<<"Video query failed"<<std::endl;
+		quitSDL(1);
+	}
+
+	bpp=info->vfmt->BitsPerPixel;
+	
+	SDL_GL_SetAttribute(SDL_GL_RED_SIZE,5);
+	SDL_GL_SetAttribute(SDL_GL_GREEN_SIZE,5);
+	SDL_GL_SetAttribute(SDL_GL_BLUE_SIZE,5);
+	SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE,16);	
+	SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER,1);
+
+	flags = SDL_OPENGL | SDL_FULLSCREEN;
+
+	if(SDL_SetVideoMode(width, height,bpp, flags)==0){
+		std::cout<<"Video mode set failed"<<std::endl;
+		quitSDL(1);
+	}
+
+	initializeGL(width,height);
+}
+
 
 int main(int argc, char** argv)
 {
-	glutInit(&argc, argv);
-	glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB | GLUT_DEPTH);
-	glutInitWindowSize(1000, 700);
-	glutInitWindowPosition(100, 100);
-	glutCreateWindow("Game");
-	init();
-	glutDisplayFunc(display);
-	glutReshapeFunc(reshape);
-	glutKeyboardFunc(keyboardKeys);
-	glutMainLoop();
+	initializeSDL();
+	while(1){
+		//process_events();
+		draw_screen();
+	}
+	//glutInit(&argc, argv);
+	//glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB | GLUT_DEPTH);
+	//glutInitWindowSize(1000, 700);
+	//glutInitWindowPosition(100, 100);
+	//glutCreateWindow("Game");
+	//glutDisplayFunc(display);
+	//glutReshapeFunc(reshape);
+	//glutKeyboardFunc(keyboardKeys);
+	//glutMainLoop();
 	return 0;
 }
 
+#endif
