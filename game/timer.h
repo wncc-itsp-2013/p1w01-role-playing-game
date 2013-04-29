@@ -2,6 +2,7 @@
 #define TIMER_CPP
 
 #include "SDL/SDL.h"
+#include <cmath>
 
 class timer{
 	public:
@@ -60,5 +61,41 @@ class contimer{
 		int total_time;
 		float diff_time;
 };
+
+//Parametric timer
+class parametricBase{
+	public:
+		parametricBase(){
+			accumulator = 0;
+			total = 0;
+			cur_time = last_time = SDL_GetTicks();
+		}
+		float getFloat(){
+			update();
+			return genValue();
+		}
+	protected:
+		virtual float genValue() = 0;
+		void update(){
+			int delta;
+			cur_time = SDL_GetTicks();
+			delta =cur_time - last_time;
+			total+=delta;
+			accumulator += delta;
+			last_time = cur_time;
+		}
+		int last_time;
+		int cur_time;
+		int accumulator;
+		int total;
+		int interval;
+};
+
+class parametricSine : public parametricBase{
+	virtual float genValue(){
+		return sinf(accumulator/1000.0f);
+	}
+};
+
 
 #endif
