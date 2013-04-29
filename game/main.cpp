@@ -6,6 +6,8 @@
 #include "cube.h"
 #include "character.cpp"
 #include "world.h"
+#include "timer.h"
+#include "timeupdater.h"
 #include <iostream>
 
 float rotate_x=0;
