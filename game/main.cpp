@@ -181,7 +181,6 @@ int main(int argc, char** argv)
 	while(1){
 		process_events();
 		draw_screen();
-
 	}
 	return 0;
 }
