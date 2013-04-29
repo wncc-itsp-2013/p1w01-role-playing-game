@@ -8,18 +8,17 @@
 #include "world.h"
 #include "timer.h"
 #include "timeupdater.h"
+#include "rotatescreen.h"
 #include <iostream>
 
-float rotate_x=0;
-float rotate_y=0;
+//float rotate_x=0;
+//float rotate_y=0;
 static int quitSDL(int code);
 
 static void handle_key_down(SDL_keysym* keysym){
 	switch(keysym->sym){
 		case SDLK_ESCAPE:
 			quitSDL(0);
-			break;
-		case SDLK_SPACE:
 			break;
 		case SDLK_UP:
 			rotate_x-=5;
@@ -31,7 +30,30 @@ static void handle_key_down(SDL_keysym* keysym){
 			rotate_y+=5;
 			break;
 		case SDLK_RIGHT:
-			rotate_y-=5;
+			//rotate_y-=5;
+			turnright=true;
+			rotateright();
+			break;
+		default:
+			break;
+	}
+	//glutPostRedisplay();
+}
+
+static void handle_key_up(SDL_keysym* keysym){
+	switch(keysym->sym){
+		case SDLK_UP:
+			rotate_x-=5;
+			break;
+		case SDLK_DOWN:
+			rotate_x+=5;
+			break;
+		case SDLK_LEFT:
+			rotate_y+=5;
+			break;
+		case SDLK_RIGHT:
+			//rotate_y-=5;
+			turnright=false;
 			break;
 		default:
 			break;
@@ -45,6 +67,9 @@ static void process_events(void){
 	while(SDL_PollEvent(&event)){
 		switch(event.type){
 			case SDL_KEYDOWN:
+				handle_key_down(&event.key.keysym);
+				break;
+			case SDL_KEYUP:
 				handle_key_down(&event.key.keysym);
 				break;
 			case SDL_QUIT:

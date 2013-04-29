@@ -31,6 +31,12 @@ class timer{
 			accumulator += delta;
 			last_time = cur_time;
 		}
+		//for use in static timers
+		void reset(){
+			accumulator = 0;
+			total = 0;
+			cur_time = last_time = SDL_GetTicks();
+		}
 
 	private:
 		int last_time;
