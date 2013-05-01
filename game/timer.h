@@ -3,25 +3,33 @@
 
 #include "SDL/SDL.h"
 #include <cmath>
+#include <iostream>
 
 class timer{
+	private:
+		int last_time;
+		int cur_time;
+		int accumulator;
+		int total;
+		int interval;
 	public:
 		timer(int p_interval = 1000){
 			interval = p_interval;
 			accumulator = 0;
 			total = 0;
-			cur_time = last_time = SDL_GetTicks();
+			last_time = SDL_GetTicks();
+			cur_time = last_time;
 		}
 		bool ready(){
-			return accumulator > interval;
+			return (accumulator >= interval);
 		}
-		int check(){
+		bool check(){
 			if(ready ()){
-				//accumulator -= interval;
 				accumulator = 0;
-				return 1;
+				std::cout<<"yes/on"<<std::endl;
+				return true;
 			}
-			return 0;
+			return false;
 		}
 		void update(){
 			int delta;
@@ -30,20 +38,14 @@ class timer{
 			total += delta;
 			accumulator += delta;
 			last_time = cur_time;
+			return;
 		}
 		//for use in static timers
 		void reset(){
 			accumulator = 0;
 			total = 0;
-			cur_time = last_time = SDL_GetTicks();
 		}
 
-	private:
-		int last_time;
-		int cur_time;
-		int accumulator;
-		int total;
-		int interval;
 };
 
 //A continuous timer

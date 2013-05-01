@@ -9,11 +9,16 @@
 #include "timer.h"
 #include "timeupdater.h"
 #include "rotatescreen.h"
+#include "updatevar.h"
 #include <iostream>
 
 //float rotate_x=0;
 //float rotate_y=0;
 static int quitSDL(int code);
+
+void callthis(){
+	std::cout<<"hi\n";
+}
 
 static void handle_key_down(SDL_keysym* keysym){
 	switch(keysym->sym){
@@ -30,9 +35,12 @@ static void handle_key_down(SDL_keysym* keysym){
 			rotate_y+=5;
 			break;
 		case SDLK_RIGHT:
-			//rotate_y-=5;
-			turnright=true;
-			rotateright();
+			rotate_y-=5;
+			//turnright=true;
+			//rotateright();
+			break;
+		case SDLK_a:
+			callthis();
 			break;
 		default:
 			break;
@@ -69,9 +77,9 @@ static void process_events(void){
 			case SDL_KEYDOWN:
 				handle_key_down(&event.key.keysym);
 				break;
-			case SDL_KEYUP:
-				handle_key_down(&event.key.keysym);
-				break;
+			/**case SDL_KEYUP:
+				handle_key_up(&event.key.keysym);
+				break;**/
 			case SDL_QUIT:
 				quitSDL(0);
 				break;
@@ -206,6 +214,7 @@ int main(int argc, char** argv)
 {
 	initializeSDL();
 	while(1){
+		updateall();
 		process_events();
 		draw_screen();
 	}
