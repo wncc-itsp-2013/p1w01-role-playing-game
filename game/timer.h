@@ -26,7 +26,6 @@ class timer{
 		bool check(){
 			if(ready ()){
 				accumulator = 0;
-				std::cout<<"yes/on"<<std::endl;
 				return true;
 			}
 			return false;

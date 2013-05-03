@@ -209,14 +209,25 @@ void initializeSDL(){
 	initializeGL(width,height);
 }
 
+void manageframe(){
+
+	//Managing the frame rate
+	int rate=1;
+	static timer framestimer((1000/rate));
+	framestimer.update();
+	if(framestimer.check()){
+		draw_screen();
+	}
+
+}
 
 int main(int argc, char** argv)
 {
 	initializeSDL();
 	while(1){
-		updateall();
+		manageframe();
+		//updateall();
 		process_events();
-		draw_screen();
 	}
 	return 0;
 }

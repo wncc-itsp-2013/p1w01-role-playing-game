@@ -4,10 +4,13 @@
 #include <iostream>
 
 void updateall(){
-	static timer hund(1000);
+
+	//Managing the frame rate
+	int rate=1;
+	static timer hund((1000/rate));
 	hund.update();
 	if(hund.check()){
-		std::cout<<"Hello"<<std::endl;
+		std::cout<<"hello\n";
 	}
 }
 
