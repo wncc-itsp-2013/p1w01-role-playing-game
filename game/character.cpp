@@ -127,6 +127,7 @@ class character{
 		//body with diaphram as center
 		body(b,d,a,c);
 			/********TEST**********/
+			//the small dot at the center of the diaphram
 			cuboid(0.05,0.05,0.05);
 			/**********TEST*******/
 
@@ -194,6 +195,8 @@ class character{
 		glPopMatrix();
 
 		/*******TEST***********/
+		//the thin vertical line running from top till 
+		//bottom and the blue bottom plate
 		cuboid(1,0.1,1);
 		glColor3f(0.1,0.8,0.1);
 		cuboid(0.01,5,0.01);

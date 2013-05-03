@@ -1,3 +1,10 @@
+3 May 2013 4:49PM:
+Framerate management is complete and a good debugged timer function is written. Now for the character walking, I would want to just import animation from 3ds max. 
+So, goals now:
+	1. Create a character in 3ds max and import it to opengl
+	2. Import all the frames needed for the animation of walking
+	3. Study terrain generation algorithms
+
 27 April 2013 4:11PM:
 Converted the entire code to SDL from glut.
 goals left:

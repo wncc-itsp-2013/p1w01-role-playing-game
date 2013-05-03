@@ -212,7 +212,7 @@ void initializeSDL(){
 void manageframe(){
 
 	//Managing the frame rate
-	int rate=1;
+	int rate=30;
 	static timer framestimer((1000/rate));
 	framestimer.update();
 	if(framestimer.check()){
