@@ -1,3 +1,10 @@
+4 May 2013 7:58AM:
+It would be a great to abstract the idea of character creation...But then you have to code all the movements precisely. You also have to study terrain generation algorithm. But is random creation necessary??? Let me first hard code the character. We can add the character abstraction later. 
+Goals now:
+	1. Study terrain generation algorithm
+	2. Design the character model in 3ds max and generate animation sequences in it. Port it to opengl
+	3. Implement terrain generation in code.
+
 3 May 2013 4:49PM:
 Framerate management is complete and a good debugged timer function is written. Now for the character walking, I would want to just import animation from 3ds max. 
 So, goals now:
