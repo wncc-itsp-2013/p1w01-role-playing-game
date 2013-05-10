@@ -2,7 +2,7 @@
 #define CHARACTER_H
 
 #include <GL/glu.h>
-#include <GL/freeglut.h>
+//#include <GL/freeglut.h>
 #include "SDL/SDL.h"
 #include "mymath.h"
 #include "cube.h"

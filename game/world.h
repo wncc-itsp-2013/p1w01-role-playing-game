@@ -2,7 +2,7 @@
 #define WORLD_H
 
 #include <GL/glu.h>
-#include <GL/freeglut.h>
+//#include <GL/freeglut.h>
 //#include "world.cpp"
 #include "cube.h"
 

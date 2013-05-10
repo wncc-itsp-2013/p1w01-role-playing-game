@@ -2,7 +2,7 @@
 #define CUBE_H
 
 #include <GL/glu.h>
-#include <GL/freeglut.h>
+//#include <GL/freeglut.h>
 
 void cube(){
 	//FRONT
