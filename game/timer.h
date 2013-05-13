@@ -55,9 +55,9 @@ class contimer{
 			total_time = 0;
 			diff_time =0.0f;
 		}
-		float getDelta(){
+		double getDelta(){
 			cur_time = SDL_GetTicks();
-			diff_time = float(cur_time- last_time)/1000.0f;
+			diff_time = double(cur_time- last_time)/1000.0f;
 			last_time = cur_time;
 			return diff_time;
 		}
@@ -66,7 +66,7 @@ class contimer{
 		int cur_time;
 		int last_time;
 		int total_time;
-		float diff_time;
+		double diff_time;
 };
 
 //Parametric timer

@@ -11,10 +11,13 @@
 #include "rotatescreen.h"
 #include "updatevar.h"
 #include <iostream>
+#include <cmath>
 
 //float rotate_x=0;
 //float rotate_y=0;
 static int quitSDL(int code);
+
+character neo;
 
 void callthis(){
 	std::cout<<"hi\n";
@@ -143,7 +146,7 @@ void draw_screen(void)
 	newworld.draw();
 
 	glColor3f(0.2,0.2,0.8);
-	character neo;
+	//character neo;
 	neo.draw();
 	/***************DRAWING ENDS**************/
 
@@ -212,13 +215,18 @@ void initializeSDL(){
 void manageframe(){
 
 	//Managing the frame rate
-	int rate=30;
+	int rate=60;
 	static timer framestimer((1000/rate));
 	framestimer.update();
 	if(framestimer.check()){
 		draw_screen();
 	}
+    /*
+    static contimer walktimer;
+    neo.E1=fmod(neo.E1+15+(15*walktimer.getDelta()),30)-15;
+    */
 
+    static parametricSine walktimer;
 }
 
 int main(int argc, char** argv)

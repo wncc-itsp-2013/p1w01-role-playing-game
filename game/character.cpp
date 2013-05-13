@@ -7,6 +7,8 @@
 #include "mymath.h"
 #include "cube.h"
 #include <iostream>
+#include <cmath>
+#include "timer.h"
 
 //pi/180
 #define pi180 0.017453293
@@ -89,15 +91,17 @@ class character{
 	//B2
 	//D1
 	//D2
-	//E1
+	//E1 angle between rightleg from vertival
 	//E2
 	//G1
 	//G2
 	//T
 	
-	int A,B1,B2,D1,D2,E1,E2,G1,G2,T;
 
 	public:
+
+
+	double A,B1,B2,D1,D2,E1,E2,G1,G2,T;
 
 	character(){
 		l=0.8;
@@ -204,8 +208,8 @@ class character{
 	}
 
 	void walk(){
-		//SDL_AddTimer(1000,)
-		//SDL_Delay(1000);
+        static timer walking(0.1);
+
 
 
 	}
