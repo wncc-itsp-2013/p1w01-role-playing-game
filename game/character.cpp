@@ -103,6 +103,8 @@ class character{
 
 	double A,B1,B2,D1,D2,E1,E2,G1,G2,T;
 
+    bool walking;//true only when the player is walking
+
 	character(){
 		l=0.8;
 		c=0.4;
@@ -120,6 +122,8 @@ class character{
 		G1=0;
 		G2=0;
 		T=0;
+
+        walking=false;
 	}
 
 	void draw(){
@@ -207,10 +211,10 @@ class character{
 		/*******TEST******/
 	}
 
-	void walk(){
-        static timer walking(0.1);
+	void action(){
+        if(walking){
 
-
+        }
 
 	}
 };

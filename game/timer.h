@@ -61,6 +61,11 @@ class contimer{
 			last_time = cur_time;
 			return diff_time;
 		}
+        void reset(){
+			cur_time = start_time = last_time = SDL_GetTicks();
+			total_time = 0;
+			diff_time =0.0f;
+        }
 	private:
 		int start_time;
 		int cur_time;

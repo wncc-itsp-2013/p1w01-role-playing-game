@@ -8,7 +8,7 @@
 #include "world.h"
 #include "timer.h"
 #include "timeupdater.h"
-#include "rotatescreen.h"
+#include "camera.h"
 #include "updatevar.h"
 #include <iostream>
 #include <cmath>
@@ -19,31 +19,28 @@ static int quitSDL(int code);
 
 character neo;
 
-void callthis(){
-	std::cout<<"hi\n";
-}
-
 static void handle_key_down(SDL_keysym* keysym){
 	switch(keysym->sym){
 		case SDLK_ESCAPE:
 			quitSDL(0);
 			break;
-		case SDLK_UP:
-			rotate_x-=5;
+		case SDLK_w:
+            turnDirection=1;
+			//rotate_x-=5;
 			break;
-		case SDLK_DOWN:
-			rotate_x+=5;
-			break;
-		case SDLK_LEFT:
-			rotate_y+=5;
-			break;
-		case SDLK_RIGHT:
-			rotate_y-=5;
-			//turnright=true;
-			//rotateright();
+		case SDLK_s:
+            turnDirection=3;
+			//rotate_x+=5;
 			break;
 		case SDLK_a:
-			callthis();
+            turnDirection=4;
+			//rotate_y+=5;
+			break;
+		case SDLK_d:
+            turnDirection=2;
+			//rotate_y-=5;
+			//turnright=true;
+			//rotateright();
 			break;
 		default:
 			break;
@@ -53,18 +50,17 @@ static void handle_key_down(SDL_keysym* keysym){
 
 static void handle_key_up(SDL_keysym* keysym){
 	switch(keysym->sym){
-		case SDLK_UP:
-			rotate_x-=5;
+		case SDLK_w:
+			turnDirection=0;
 			break;
-		case SDLK_DOWN:
-			rotate_x+=5;
+		case SDLK_s:
+			turnDirection=0;
 			break;
-		case SDLK_LEFT:
-			rotate_y+=5;
+		case SDLK_a:
+			turnDirection=0;
 			break;
-		case SDLK_RIGHT:
-			//rotate_y-=5;
-			turnright=false;
+		case SDLK_d:
+			turnDirection=0;
 			break;
 		default:
 			break;
@@ -214,6 +210,8 @@ void initializeSDL(){
 
 void manageframe(){
 
+    //updateall();
+    
 	//Managing the frame rate
 	int rate=60;
 	static timer framestimer((1000/rate));
@@ -221,21 +219,22 @@ void manageframe(){
 	if(framestimer.check()){
 		draw_screen();
 	}
-    /*
-    static contimer walktimer;
-    neo.E1=fmod(neo.E1+15+(15*walktimer.getDelta()),30)-15;
-    */
+    
+    //static contimer walktimer;
+    //neo.E1=fmod(neo.E1+15+(15*walktimer.getDelta()),30)-15;
+    
 
-    static parametricSine walktimer;
+    //static parametricSine walktimer;
 }
 
 int main(int argc, char** argv)
 {
 	initializeSDL();
 	while(1){
-		manageframe();
 		//updateall();
 		process_events();
+
+		manageframe();
 	}
 	return 0;
 }
