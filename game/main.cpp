@@ -24,23 +24,21 @@ static void handle_key_down(SDL_keysym* keysym){
 		case SDLK_ESCAPE:
 			quitSDL(0);
 			break;
-		case SDLK_w:
+		case SDLK_UP:
             turnDirection=1;
 			//rotate_x-=5;
 			break;
-		case SDLK_s:
+		case SDLK_DOWN:
             turnDirection=3;
 			//rotate_x+=5;
 			break;
-		case SDLK_a:
+		case SDLK_LEFT:
             turnDirection=4;
 			//rotate_y+=5;
 			break;
-		case SDLK_d:
+		case SDLK_RIGHT:
             turnDirection=2;
 			//rotate_y-=5;
-			//turnright=true;
-			//rotateright();
 			break;
 		default:
 			break;
@@ -50,16 +48,17 @@ static void handle_key_down(SDL_keysym* keysym){
 
 static void handle_key_up(SDL_keysym* keysym){
 	switch(keysym->sym){
-		case SDLK_w:
+		case SDLK_UP:
+            std::cout<<"hi\n";
 			turnDirection=0;
 			break;
-		case SDLK_s:
+		case SDLK_DOWN:
 			turnDirection=0;
 			break;
-		case SDLK_a:
+		case SDLK_LEFT:
 			turnDirection=0;
 			break;
-		case SDLK_d:
+		case SDLK_RIGHT:
 			turnDirection=0;
 			break;
 		default:
@@ -76,9 +75,9 @@ static void process_events(void){
 			case SDL_KEYDOWN:
 				handle_key_down(&event.key.keysym);
 				break;
-			/**case SDL_KEYUP:
+			case SDL_KEYUP:
 				handle_key_up(&event.key.keysym);
-				break;**/
+				break;
 			case SDL_QUIT:
 				quitSDL(0);
 				break;
@@ -211,7 +210,10 @@ void initializeSDL(){
 void manageframe(){
 
     //updateall();
-    
+
+
+    rotate();
+
 	//Managing the frame rate
 	int rate=60;
 	static timer framestimer((1000/rate));
@@ -219,6 +221,7 @@ void manageframe(){
 	if(framestimer.check()){
 		draw_screen();
 	}
+
     
     //static contimer walktimer;
     //neo.E1=fmod(neo.E1+15+(15*walktimer.getDelta()),30)-15;
