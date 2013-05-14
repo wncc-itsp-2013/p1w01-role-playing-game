@@ -2,6 +2,7 @@
 #define ROTATESCREEN_H
 
 #include "timer.h"
+#include <cmath>
 
 float rotate_x=0;
 float rotate_y=0;
@@ -18,6 +19,9 @@ bool turning=false;
 float camXSpeed=30;
 float camYSpeed=30;
 
+//maximum vertical angle it can go
+float cameraVerticalThreshould=30;
+
 void rotate(){
 	static contimer rotator;
     if(turnDirection != 0){
@@ -28,16 +32,22 @@ void rotate(){
         double delta=rotator.getDelta();
         switch (turnDirection) {
             case 1:
-                rotate_x-=camXSpeed*delta;
+                if(rotate_x > -cameraVerticalThreshould){
+                    rotate_x-=camXSpeed*delta;
+                }
                 break;
             case 2:
                 rotate_y-=camYSpeed*delta;
+                rotate_y=fmod(rotate_y,360);
                 break;
             case 3:
-                rotate_x+=camXSpeed*delta;
+                if(rotate_x < cameraVerticalThreshould){
+                    rotate_x+=camXSpeed*delta;
+                }
                 break;
             case 4:
                 rotate_y+=camXSpeed*delta;
+                rotate_y=fmod(rotate_y,360);
                 break;
             default:
                 break;

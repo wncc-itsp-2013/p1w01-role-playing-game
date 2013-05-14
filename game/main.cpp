@@ -49,7 +49,6 @@ static void handle_key_down(SDL_keysym* keysym){
 static void handle_key_up(SDL_keysym* keysym){
 	switch(keysym->sym){
 		case SDLK_UP:
-            std::cout<<"hi\n";
 			turnDirection=0;
 			break;
 		case SDLK_DOWN:
