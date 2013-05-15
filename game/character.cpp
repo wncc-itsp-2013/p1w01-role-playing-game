@@ -105,6 +105,9 @@ class character{
 
     bool walking;//true only when the player is walking
 
+    //number of seconds taken for one complete oscillation of leg
+    float legSpeed;
+
 	character(){
 		l=0.8;
 		c=0.3;
@@ -123,7 +126,8 @@ class character{
 		G2=0;
 		T=0;
 
-        walking=true;
+        walking=false;
+        legSpeed=5;
 	}
 
 	void draw(){
@@ -218,8 +222,8 @@ class character{
         static double totalTime=0;
         totalTime+=delta;
         totalTime=fmod(totalTime,1);
-        E1=spike(totalTime,1,15);
-        E2=-spike(totalTime,1,15);
+        E1=spike(totalTime,legSpeed,15);
+        E2=-spike(totalTime,legSpeed,15);
     }
 
 	void action(){

@@ -40,6 +40,17 @@ static void handle_key_down(SDL_keysym* keysym){
             turnDirection=2;
 			//rotate_y-=5;
 			break;
+        case SDLK_a:
+            break;
+        case SDLK_d:
+            //
+            break;
+        case SDLK_w:
+            neo.walking=true;
+            break;
+        case SDLK_s:
+            neo.walking=true;
+            break;
 		default:
 			break;
 	}
@@ -60,6 +71,18 @@ static void handle_key_up(SDL_keysym* keysym){
 		case SDLK_RIGHT:
 			turnDirection=0;
 			break;
+        case SDLK_a:
+            //
+            break;
+        case SDLK_d:
+            //
+            break;
+        case SDLK_w:
+            neo.walking=false;
+            break;
+        case SDLK_s:
+            neo.walking=false;
+            break;
 		default:
 			break;
 	}
