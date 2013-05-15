@@ -82,8 +82,6 @@ static void process_events(void){
 				break;
 		}
 	}
-
-
 }
 
 void initializeGL(int w, int h)
@@ -211,7 +209,11 @@ void manageframe(){
     //updateall();
 
 
+    //the camera movement
     rotate();
+
+    //Character movement
+    neo.action();
 
 	//Managing the frame rate
 	int rate=60;

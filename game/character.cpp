@@ -2,13 +2,13 @@
 #define CHARACTER_H
 
 #include <GL/glu.h>
-//#include <GL/freeglut.h>
 #include "SDL/SDL.h"
 #include "mymath.h"
 #include "cube.h"
 #include <iostream>
 #include <cmath>
 #include "timer.h"
+#include <iostream>
 
 //pi/180
 #define pi180 0.017453293
@@ -91,7 +91,7 @@ class character{
 	//B2
 	//D1
 	//D2
-	//E1 angle between rightleg from vertival
+	//E1 angle between rightleg from vertical
 	//E2
 	//G1
 	//G2
@@ -107,7 +107,7 @@ class character{
 
 	character(){
 		l=0.8;
-		c=0.4;
+		c=0.3;
 		a=0.5;
 		b=0.5;
 		h=0.8;
@@ -123,7 +123,7 @@ class character{
 		G2=0;
 		T=0;
 
-        walking=false;
+        walking=true;
 	}
 
 	void draw(){
@@ -211,9 +211,20 @@ class character{
 		/*******TEST******/
 	}
 
+    //walking
+    void walk(){
+        static contimer walker;
+        double delta=walker.getDelta();
+        static double totalTime=0;
+        totalTime+=delta;
+        totalTime=fmod(totalTime,1);
+        E1=spike(totalTime,1,15);
+        E2=-spike(totalTime,1,15);
+    }
+
 	void action(){
         if(walking){
-
+            walk();
         }
 	}
 };
