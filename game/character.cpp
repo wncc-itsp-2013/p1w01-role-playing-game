@@ -13,10 +13,6 @@
 //pi/180
 #define pi180 0.017453293
 
-void printhello(int* p){
-	std::cout<<"hello"<<std::endl;
-}
-
 void pole(float l){
 	glPushMatrix();
 	glTranslatef(0,l/2,0);
@@ -87,7 +83,7 @@ class character{
 
 	//all angles are capital letters
 	//A angle between head and the body
-	//B1  
+	//B1 angle between vertical and hand along the line joining lungs 
 	//B2
 	//D1
 	//D2
@@ -116,18 +112,18 @@ class character{
 		h=0.8;
 		d=0.7;
 		A=0;
-		B1=45;
+		B1=0;
 		B2=0;
 		D1=0;
 		D2=0;
-		E1=-15;
-		E2=15;
+		E1=0;
+		E2=0;
 		G1=0;
 		G2=0;
 		T=0;
 
         walking=false;
-        legSpeed=5;
+        legSpeed=0.5;
 	}
 
 	void draw(){
@@ -221,9 +217,11 @@ class character{
         double delta=walker.getDelta();
         static double totalTime=0;
         totalTime+=delta;
-        totalTime=fmod(totalTime,1);
+        totalTime=fmod(totalTime,legSpeed);
         E1=spike(totalTime,legSpeed,15);
         E2=-spike(totalTime,legSpeed,15);
+        G2=spike(totalTime,legSpeed,15);
+        G1=-spike(totalTime,legSpeed,15);
     }
 
 	void action(){
