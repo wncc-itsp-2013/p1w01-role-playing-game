@@ -155,14 +155,12 @@ void draw_screen(void)
 
 	/****************DRAWING STARTS************/
 	glColor3f(0.2,0.8,0.2);
-	//cube();
-	//world newworld(0.2,2,2);
 	world newworld;
 	newworld.draw();
 
 	glColor3f(0.2,0.2,0.8);
-	//character neo;
 	neo.draw();
+
 	/***************DRAWING ENDS**************/
 
 	glPopMatrix();
