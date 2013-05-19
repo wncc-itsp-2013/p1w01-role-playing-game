@@ -13,6 +13,8 @@
 #include <iostream>
 #include <cmath>
 
+#include "characterskin.h"
+
 //float rotate_x=0;
 //float rotate_y=0;
 static int quitSDL(int code);
@@ -161,6 +163,8 @@ void draw_screen(void)
 	glColor3f(0.2,0.2,0.8);
 	neo.draw();
 
+
+    //chead();
 	/***************DRAWING ENDS**************/
 
 	glPopMatrix();

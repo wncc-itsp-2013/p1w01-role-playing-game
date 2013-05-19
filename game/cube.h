@@ -4,6 +4,8 @@
 #include <GL/glu.h>
 //#include <GL/freeglut.h>
 
+float miniScale=0.2;
+
 void cube(){
 	//FRONT
 	glBegin(GL_POLYGON);
@@ -66,6 +68,13 @@ void cuboid(float x, float y, float z){
 	glScalef(x,y,z);
 	cube();
 	glPopMatrix();
+}
+
+void mini(){
+    glPushMatrix();
+    glScalef(miniScale,miniScale,miniScale);
+    cube();
+    glPopMatrix();
 }
 
 #endif

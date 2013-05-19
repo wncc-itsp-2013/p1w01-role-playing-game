@@ -9,6 +9,7 @@
 #include <cmath>
 #include "timer.h"
 #include <iostream>
+#include "characterskin.h"
 
 //pi/180
 #define pi180 0.017453293
