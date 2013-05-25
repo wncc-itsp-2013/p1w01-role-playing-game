@@ -20,7 +20,7 @@ float camXSpeed=30;
 float camYSpeed=30;
 
 //maximum vertical angle it can go
-float cameraVerticalThreshould=70;
+float cameraVerticalThreshould=30;
 
 void rotate(){
 	static contimer rotator;

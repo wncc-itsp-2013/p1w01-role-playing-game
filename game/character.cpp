@@ -23,7 +23,7 @@ void pole(float l){
 }
 
 void head(){
-	float height=0.6,fvlength=0.6,svlength=0.6;
+	float height=0.5,fvlength=0.5,svlength=0.5;
 	glPushMatrix();
 	glTranslatef(0,height/2,0);
 	glScalef(fvlength,height,svlength);
@@ -106,12 +106,12 @@ class character{
     float legSpeed;
 
 	character(){
-		l=0.8;
+		l=0.4;
 		c=0.3;
-		a=0.5;
-		b=0.5;
-		h=0.8;
-		d=0.7;
+		a=0.3;
+		b=0.3;
+		h=0.4;
+		d=0.5;
 		A=0;
 		B1=0;
 		B2=0;
