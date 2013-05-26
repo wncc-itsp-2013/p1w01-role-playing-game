@@ -10,6 +10,8 @@
 #include "timeupdater.h"
 #include "camera.h"
 #include "updatevar.h"
+#include "display.cpp"
+#include "initialisations.cpp"
 #include <iostream>
 #include <cmath>
 
@@ -19,7 +21,6 @@
 //float rotate_y=0;
 static int quitSDL(int code);
 
-character neo;
 
 static void handle_key_down(SDL_keysym* keysym){
 	switch(keysym->sym){
@@ -147,6 +148,7 @@ void initializeGL(int w, int h)
 	glMatrixMode(GL_MODELVIEW);
 }
 
+/*
 void draw_screen(void)
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -154,24 +156,26 @@ void draw_screen(void)
 	glPushMatrix();
 	glRotatef(rotate_x,1,0,0);
 	glRotatef(rotate_y,0,1,0);
-
+*/
 	/****************DRAWING STARTS************/
-	glColor3f(0.2,0.8,0.2);
+/*	glColor3f(0.2,0.8,0.2);
 	world newworld;
 	newworld.draw();
 
 	glColor3f(0.2,0.2,0.8);
 	neo.draw();
-
+*/
 
     //chead();
 	/***************DRAWING ENDS**************/
 
-	glPopMatrix();
+/*	glPopMatrix();
 	glFlush();
 
 	SDL_GL_SwapBuffers();
 }
+*/
+
 
 void reshape(int w, int h){
 	glViewport(0,0,(GLsizei) w,(GLsizei) h);

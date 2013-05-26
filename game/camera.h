@@ -4,7 +4,7 @@
 #include "timer.h"
 #include <cmath>
 
-float rotate_x=0;
+float rotate_x=20;
 float rotate_y=0;
 
 //0 for none
@@ -20,7 +20,10 @@ float camXSpeed=30;
 float camYSpeed=30;
 
 //maximum vertical angle it can go
-float cameraVerticalThreshould=30;
+//float cameraVerticalThreshould=30;
+float cameraUpThreshould=-10;
+float cameraDownThreshould=30;
+
 
 void rotate(){
 	static contimer rotator;
@@ -32,7 +35,7 @@ void rotate(){
         double delta=rotator.getDelta();
         switch (turnDirection) {
             case 1:
-                if(rotate_x > -cameraVerticalThreshould){
+                if(rotate_x > -cameraUpThreshould){
                     rotate_x-=camXSpeed*delta;
                 }
                 break;
@@ -41,7 +44,7 @@ void rotate(){
                 rotate_y=fmod(rotate_y,360);
                 break;
             case 3:
-                if(rotate_x < cameraVerticalThreshould){
+                if(rotate_x < cameraDownThreshould){
                     rotate_x+=camXSpeed*delta;
                 }
                 break;

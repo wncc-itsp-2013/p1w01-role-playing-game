@@ -105,6 +105,8 @@ class character{
     //number of seconds taken for one complete oscillation of leg
     float legSpeed;
 
+    float xCor,yCor;
+
 	character(){
 		l=0.4;
 		c=0.3;
@@ -122,6 +124,9 @@ class character{
 		G1=0;
 		G2=0;
 		T=0;
+
+        xCor=0;
+        yCor=0;
 
         walking=false;
         legSpeed=0.5;

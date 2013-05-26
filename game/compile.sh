@@ -1,2 +1,2 @@
 #!/bin/bash
-g++ main.cpp -lGL -lSDL -lGLU
+g++ base.cpp -lGL -lSDL -lGLU

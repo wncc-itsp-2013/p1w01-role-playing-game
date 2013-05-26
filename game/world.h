@@ -22,8 +22,8 @@ class world{
 
 	world(){
 		thickness=0.1;
-		xlength=2;
-		zlength=2;
+		xlength=3000;
+		zlength=2000;
 	}
 
 	world(float thick,float xl, float zl){
