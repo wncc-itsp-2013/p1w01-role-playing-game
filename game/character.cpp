@@ -107,6 +107,13 @@ class character{
 
     float xCor,yCor;
 
+    //the health and mana of the player
+    int health, mana;
+
+    //Inventory
+    //this array contains ID's of items.
+    int Inv[40];
+
 	character(){
 		l=0.4;
 		c=0.3;
@@ -130,6 +137,13 @@ class character{
 
         walking=false;
         legSpeed=0.5;
+
+        health=100;
+        mana=100;
+
+        for(int junk=0;junk<50;junk++){
+            Inv[junk]=0;
+        }
 	}
 
 	void draw(){
@@ -235,6 +249,14 @@ class character{
             walk();
         }
 	}
+
+    int getHealth(){
+        return health;
+    }
+
+    int getMana(){
+        return mana;
+    }
 };
 
 
