@@ -1,10 +1,9 @@
 #ifndef WORLD_H
 #define WORLD_H
 
-#include <GL/glu.h>
-//#include <GL/freeglut.h>
+//#include <GL/glu.h>
 //#include "world.cpp"
-#include "cube.h"
+//#include "cube.h"
 
 
 class world{
@@ -20,25 +19,11 @@ class world{
 
 	public:
 
-	world(){
-		thickness=0.1;
-		xlength=3000;
-		zlength=2000;
-	}
+	world();
 
-	world(float thick,float xl, float zl){
-		thickness=thick;
-		xlength=xl;
-		zlength=zl;
-	}
+	world(float thick,float xl, float zl);
 
-	void draw(){
-		glPushMatrix();
-		glTranslatef(0,-thickness/2,0);
-		glScalef(2*xlength,thickness,2*zlength);
-		cube();
-		glPopMatrix();
-	}
+	void draw();
 
 };
 

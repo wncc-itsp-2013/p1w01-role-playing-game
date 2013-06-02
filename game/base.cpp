@@ -5,7 +5,7 @@
 #include <GL/glu.h>
 #include "cube.h"
 #include "character.cpp"
-#include "world.h"
+#include "world.cpp"
 #include "timer.h"
 #include "timeupdater.h"
 #include "camera.h"
